@@ -114,8 +114,8 @@
 }
 
 .icono-boton {
-    width: 22px;
-    height: 22px;
+    width: 15px;
+    height: 15px;
     margin-right: 8px;
     vertical-align: middle;
 }
@@ -124,6 +124,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.checkbox-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 15%; /* Espacio mínimo entre el texto y el checkbox */
+    padding-left: 0;
+}
+
+.checkbox-contenedor .form-check-input {
+    margin-left: 0; /* Elimina el margen izquierdo por defecto */
+    position: relative;
+    top: -1px; /* Ajuste fino de alineación vertical si es necesario */
 }
 
 @media (max-width: 768px) {
