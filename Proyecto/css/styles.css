@@ -102,7 +102,7 @@
     background-color: var(--color-principal);
     border-color: var(--color-principal);
     color: white;
-    padding: 8px 15px;
+    padding: 5px 10px;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -129,14 +129,14 @@
 .checkbox-contenedor {
     display: flex;
     align-items: center;
-    gap: 15%; /* Espacio mínimo entre el texto y el checkbox */
+    gap: 15%;
     padding-left: 0;
 }
 
 .checkbox-contenedor .form-check-input {
-    margin-left: 0; /* Elimina el margen izquierdo por defecto */
+    margin-left: 0;
     position: relative;
-    top: -1px; /* Ajuste fino de alineación vertical si es necesario */
+    top: -1px;
 }
 
 @media (max-width: 768px) {

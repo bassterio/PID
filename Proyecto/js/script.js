@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#descripcion').summernote({
         placeholder: 'Escribe aquí...',
-        height: 200,
+        height: 150,
         toolbar: [
             ['font', ['fontname']],
             ['style', ['bold', 'italic', 'underline']],
@@ -24,7 +24,6 @@ $(document).ready(function() {
         ]
     });
 
-    // Validación de fechas
     function validarFechas() {
         const fechaInicio = $('#fechaInicio').val();
         const fechaFin = $('#fechaFin').val();
@@ -48,7 +47,6 @@ $(document).ready(function() {
         return valido;
     }
 
-    // Validación en tiempo real
     $('input').on('input change', function() {
         if ($(this).val()) {
             $(this).removeClass('is-invalid').addClass('is-valid');
@@ -104,7 +102,7 @@ $(document).ready(function() {
                 $(this).removeClass('is-invalid').addClass('is-valid');
             }
         });
-        return valido;
+        return valido && validarFechas();
     }
 
     function obtenerDatosFormulario() {
