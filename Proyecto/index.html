@@ -1,16 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Adicionar código REUP</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/summernote-lite.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>aaaaaaaaaaaa</h1>
-    <form action="">
+    <div class="formulario-ventana">
+        <div class="barra-titulo">
+            <span class="titulo">Adicionar código REUP</span>
+            <div class="botones-ventana">
+                <button class="btn-minimizar"><img src="./icons/minimizar.png" alt="Minimizar" class="icono-ventana"></button>
+                <button class="btn-cerrar"><img src="./icons/cerrar.png" alt="Cerrar" class="icono-ventana"></button>
+            </div>
+        </div>
 
-    </form>
+        <form id="formReup" class="contenido-formulario">
+            <div class="mb-3">
+                <label for="denominacion" class="form-label">Denominación<span class="asterisco-rojo">*</span></label>
+                <input type="text" class="form-control" id="denominacion" required>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="codigoReup" class="form-label">Código REUP<span class="asterisco-rojo">*</span></label>
+                    <input type="text" class="form-control" id="codigoReup" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="abreviatura" class="form-label">Abreviatura<span class="asterisco-rojo">*</span></label>
+                    <input type="text" class="form-control" id="abreviatura" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="fechaInicio" class="form-label">Fecha de inicio<span class="asterisco-rojo">*</span></label>
+                    <input type="date" class="form-control" id="fechaInicio" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="fechaFin" class="form-label">Fecha fin<span class="asterisco-rojo">*</span></label>
+                    <input type="date" class="form-control" id="fechaFin" required>
+                </div>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="propio">
+                <label class="form-check-label" for="propio">Propio</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <div id="descripcion"></div>
+            </div>
+
+            <div class="botones-accion">
+                <button type="button" class="btn btn-cancelar">Cancelar</button>
+                <button type="button" class="btn btn-aplicar">Aplicar</button>
+                <button type="submit" class="btn btn-aceptar">Aceptar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/summernote-lite.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
