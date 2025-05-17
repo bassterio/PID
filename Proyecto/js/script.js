@@ -24,6 +24,40 @@ $(document).ready(function() {
         ]
     });
 
+    // Validación de fechas
+    function validarFechas() {
+        const fechaInicio = $('#fechaInicio').val();
+        const fechaFin = $('#fechaFin').val();
+        let valido = true;
+        
+        if (fechaInicio && fechaFin) {
+            const inicio = new Date(fechaInicio);
+            const fin = new Date(fechaFin);
+            
+            if (inicio > fin) {
+                $('#fechaInicio').removeClass('is-valid').addClass('is-invalid');
+                $('#fechaFin').removeClass('is-valid').addClass('is-invalid');
+                $('#fechaFin').next('.invalid-feedback').text('La fecha de inicio no puede ser posterior a la fecha final');
+                valido = false;
+            } else {
+                $('#fechaInicio').removeClass('is-invalid').addClass('is-valid');
+                $('#fechaFin').removeClass('is-invalid').addClass('is-valid');
+                $('#fechaFin').next('.invalid-feedback').text('');
+            }
+        }
+        return valido;
+    }
+
+    // Validación en tiempo real
+    $('input').on('input change', function() {
+        if ($(this).val()) {
+            $(this).removeClass('is-invalid').addClass('is-valid');
+            $(this).next('.invalid-feedback').text('');
+        } else {
+            $(this).removeClass('is-valid');
+        }
+    });
+
     $('.btn-cerrar').click(function() {
         if (confirm('¿Estás seguro de que quieres cerrar el formulario?')) {
             window.close();
@@ -38,11 +72,13 @@ $(document).ready(function() {
         if (confirm('¿Deseas cancelar y descartar los cambios?')) {
             $('#formReup')[0].reset();
             $('#descripcion').summernote('reset');
+            $('.is-invalid, .is-valid').removeClass('is-invalid is-valid');
+            $('.invalid-feedback').text('');
         }
     });
 
     $('.btn-aplicar').click(function() {
-        if (validarFormulario()) {
+        if (validarFormulario() && validarFechas()) {
             const datos = obtenerDatosFormulario();
             console.log("Datos aplicados:", datos);
             alert("Cambios aplicados correctamente");
@@ -51,7 +87,7 @@ $(document).ready(function() {
 
     $('#formReup').submit(function(e) {
         e.preventDefault();
-        if (validarFormulario()) {
+        if (validarFormulario() && validarFechas()) {
             const datos = obtenerDatosFormulario();
             console.log("Datos guardados:", datos);
             alert("Formulario guardado correctamente");
@@ -62,10 +98,10 @@ $(document).ready(function() {
         let valido = true;
         $('input[required]').each(function() {
             if (!$(this).val()) {
-                $(this).addClass('is-invalid');
+                $(this).removeClass('is-valid').addClass('is-invalid');
                 valido = false;
             } else {
-                $(this).removeClass('is-invalid');
+                $(this).removeClass('is-invalid').addClass('is-valid');
             }
         });
         return valido;

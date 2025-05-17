@@ -1,6 +1,8 @@
 :root {
     --color-principal: #957cb2;
     --color-hover: #8560a8;
+    --color-valido: #28a745;
+    --color-invalido: #dc3545;
 }
 
 .formulario-ventana {
@@ -63,8 +65,28 @@
     margin-left: 3px;
 }
 
-.is-invalid {
-    border-color: #dc3545 !important;
+.form-control {
+    transition: border-color 0.3s ease;
+}
+
+.form-control.is-valid {
+    border-color: var(--color-valido) !important;
+}
+
+.form-control.is-invalid {
+    border-color: var(--color-invalido) !important;
+}
+
+.invalid-feedback {
+    color: var(--color-invalido);
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+}
+
+.valid-feedback {
+    color: var(--color-valido);
+    font-size: 0.875em;
+    margin-top: 0.25rem;
 }
 
 .botones-accion {
